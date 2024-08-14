@@ -1,0 +1,34 @@
+environment: beta
+project_name: EKAM
+jewel_user: saloni
+#jewel_bridge_token: c8eda5ea-71db-4483-b021-1e4603efb2791710420130467
+#enter_point: https://betaapi.gemecosystem.com/gemEcosystemDashboard/v1/enter-point
+#prod token
+jewel_bridge_token: eb309270-b933-4469-af72-6e051464e2ad1687930868387
+enter_point: https://apis.gemecosystem.com/gemEcosystemDashboard/v1/enter-point
+report_name: EKAM_Report
+email_report: N
+jewel_screen_shots: Y/N
+glue_code: com.gemini.athenaAPI.stepDefinition.APIStepDefinition
+beta:
+  browser_name: chrome
+  launch_url: https://bondui.geminisolutions.com/#/
+  browser_timeout: 100
+  login: https://bondtrading.geminisolutions.com/api/v1/user/login
+  authenticate_url: https://bondtrading.geminisolutions.com/api/v1/user/login
+  createUser: https://bondtrading.geminisolutions.com/api/v1/user/exists
+  getUser: https://bondtrading.geminisolutions.com/api/v1/user?userId=481670
+  forgotPassword: https://bondtrading.geminisolutions.com/api/v1/user/forgot-password
+  changePassword: https://bondtrading.geminisolutions.com/api/v1/user/change-password
+  deleteUser: https://bondtrading.geminisolutions.com/api/v1/user?email=saloninagpal321@gmail.com&userId=481670
+  getUserWatchlist: https://bondtrading.geminisolutions.com/api/v1/user/watchlist?userId=481692
+  createWatchlist: https://bondtrading.geminisolutions.com/api/v1/user/watchlist
+  getNotificationPreference: https://bondtrading.geminisolutions.com/api/v1/notification/preferences/
+  createNotification: https://bondtrading.geminisolutions.com/api/v1/notification/preferences
+  sendNotification: https://bondtrading.geminisolutions.com/api/v1/notification/bond
+  deleteNotificationPreference: https://bondtrading.geminisolutions.com/api/v1/notification/preferences/
+  createOrder: https://bondtrading.geminisolutions.com/api/v1/orders?userId=
+  getOrder: https://bondtrading.geminisolutions.com/api/v1/orders?orderId=7&userId=
+  getOrderByUserId: https://bondtrading.geminisolutions.com/api/v1/orders/user?userId=
+
+

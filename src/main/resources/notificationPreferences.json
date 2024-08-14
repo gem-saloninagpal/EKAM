@@ -1,0 +1,7 @@
+{
+  "userId" : "481692",
+  "emailAlerts" : true,
+  "smsAlerts" : true,
+  "whatsappAlerts" : true,
+  "pushNotifications" : true
+}

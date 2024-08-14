@@ -1,0 +1,14 @@
+
+{
+  "watchlistId": 0,
+  "userId": 481692,
+  "bondIsin": "IN0000000033",
+  "bondName": "abcddemo",
+  "yield": 0,
+  "price": 0,
+  "issuerName": "string",
+  "redemptionDate": "2024-08-06",
+  "faceValue": 0,
+  "coupon": 0,
+  "enableNotification": true
+}

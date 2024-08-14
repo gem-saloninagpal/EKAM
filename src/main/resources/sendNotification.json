@@ -1,0 +1,6 @@
+{
+  "bondIsin": "string",
+  "notificationType": "NEW_BOND_LISTED",
+  "bondName": "string",
+  "currentPrice": 0
+}
