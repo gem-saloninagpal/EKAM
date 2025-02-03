@@ -2,9 +2,9 @@ package com.gemini.ekamUi.stepdefinitions;
 
 import com.gemini.ekamUi.locators.BondFormLocators;
 import com.gemini.ekamUi.locators.BondLocators;
-import com.gemini.generic.reporting.GemTestReporter;
-import com.gemini.generic.reporting.STATUS;
-import com.gemini.generic.ui.utils.DriverAction;
+import com.gemini.gemjar.enums.Status;
+import com.gemini.gemjar.reporting.GemTestReporter;
+import com.gemini.gemjar.utils.ui.DriverAction;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -21,12 +21,12 @@ public class BondForm {
         try {
              String tooltipText= DriverAction.getAttributeName(BondFormLocators.saveAndDraft,"title");
             if (tooltipText.equals("Please fill out Bond ISIN and Bond Name")) {
-                GemTestReporter.addTestStep("Hover over Save & Draft and verify tooltip", "Successfully verified the tooltip", STATUS.PASS, DriverAction.takeSnapShot());
+                GemTestReporter.addTestStep("Hover over Save & Draft and verify tooltip", "Successfully verified the tooltip", Status.PASS, DriverAction.takeSnapShot());
             } else {
-                GemTestReporter.addTestStep("Hover over Save & Draft and verify tooltip", "Could not verify the tooltip on hovering over Save & Draft.", STATUS.FAIL, DriverAction.takeSnapShot());
+                GemTestReporter.addTestStep("Hover over Save & Draft and verify tooltip", "Could not verify the tooltip on hovering over Save & Draft.", Status.FAIL, DriverAction.takeSnapShot());
             }
         } catch (Exception e) {
-            GemTestReporter.addTestStep("Hover over Save & Draft and verify tooltip", "Exception encountered- " + e, STATUS.ERR, DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Hover over Save & Draft and verify tooltip", "Exception encountered- " + e, Status.ERR, DriverAction.takeSnapShot());
         }
     }
 
@@ -39,7 +39,7 @@ public class BondForm {
             DriverAction.typeText(BondFormLocators.bondIsin, _isin);
             DriverAction.waitSec(2);
         } catch (Exception e) {
-            GemTestReporter.addTestStep("Enter issuer name and isin", "Exception encountered- " + e, STATUS.ERR, DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Enter issuer name and isin", "Exception encountered- " + e, Status.ERR, DriverAction.takeSnapShot());
         }
     }
 
@@ -69,12 +69,12 @@ public class BondForm {
             String draftedBondName=DriverAction.getElementText(BondFormLocators.getBondName);
         //    String draftedBondIsin=DriverAction.getElementText(BondFormLocators.getBondIsin);
             if(draftedBondName.contains(_bondName)){
-                GemTestReporter.addTestStep("Verify the drafted bond","Successfully verified the drafted bond.",STATUS.PASS,DriverAction.takeSnapShot());
+                GemTestReporter.addTestStep("Verify the drafted bond","Successfully verified the drafted bond.",Status.PASS,DriverAction.takeSnapShot());
             }else{
-                GemTestReporter.addTestStep("Verify the drafted bond","Could not verify the drafted bond.",STATUS.FAIL,DriverAction.takeSnapShot());
+                GemTestReporter.addTestStep("Verify the drafted bond","Could not verify the drafted bond.",Status.FAIL,DriverAction.takeSnapShot());
             }
         }catch(Exception e){
-            GemTestReporter.addTestStep("Verify the drafted bond","Exception encountered- "+e,STATUS.ERR,DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Verify the drafted bond","Exception encountered- "+e,Status.ERR,DriverAction.takeSnapShot());
         }
     }
 
@@ -106,7 +106,7 @@ public class BondForm {
                 }
             }
         }catch(Exception e){
-            GemTestReporter.addTestStep("Enter mandatory details in bond form","Exception encountered- "+e,STATUS.ERR);
+            GemTestReporter.addTestStep("Enter mandatory details in bond form","Exception encountered- "+e, Status.ERR);
         }
     }
 }

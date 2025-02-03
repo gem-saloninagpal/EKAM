@@ -2,9 +2,9 @@ package com.gemini.ekamUi.stepdefinitions;
 
 import com.gemini.ekamUi.locators.BondLocators;
 import com.gemini.ekamUi.locators.LoginLocators;
-import com.gemini.generic.reporting.GemTestReporter;
-import com.gemini.generic.reporting.STATUS;
-import com.gemini.generic.ui.utils.DriverAction;
+import com.gemini.gemjar.enums.Status;
+import com.gemini.gemjar.reporting.GemTestReporter;
+import com.gemini.gemjar.utils.ui.DriverAction;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -27,13 +27,13 @@ public class UserRegistrationLogin {
                 String emailMessage=errors.get(0).getText();
                 String passwordMessage=errors.get(1).getText();
                 if(emailMessage.equals(expectedEmailValidation)&&passwordMessage.equals(expectedPasswordValidation)){
-                    GemTestReporter.addTestStep("Validate error messages on email and password","Successfully validated the messages", STATUS.PASS,DriverAction.takeSnapShot());
+                    GemTestReporter.addTestStep("Validate error messages on email and password","Successfully validated the messages", Status.PASS,DriverAction.takeSnapShot());
                 }else{
-                    GemTestReporter.addTestStep("Validate error messages on email and password","Could not validate the messages", STATUS.FAIL,DriverAction.takeSnapShot());
+                    GemTestReporter.addTestStep("Validate error messages on email and password","Could not validate the messages", Status.FAIL,DriverAction.takeSnapShot());
                 }
 
         }catch(Exception e){
-            GemTestReporter.addTestStep("Validate error message on email and password","Exception encountered- "+e,STATUS.ERR,DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Validate error message on email and password","Exception encountered- "+e,Status.ERR,DriverAction.takeSnapShot());
         }
     }
 
@@ -52,7 +52,7 @@ public class UserRegistrationLogin {
             }
             DriverAction.waitSec(4);
         }catch(Exception e){
-            GemTestReporter.addTestStep("Click the button- "+button,"Exception encountered- "+e,STATUS.ERR,DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Click the button- "+button,"Exception encountered- "+e,Status.ERR,DriverAction.takeSnapShot());
         }
     }
 
@@ -60,12 +60,12 @@ public class UserRegistrationLogin {
     public void validateCredentialsBoxAppears() {
         try{
             if(DriverAction.isDisplayed(LoginLocators.enterCredentials)){
-                GemTestReporter.addTestStep("Validate credentials box appears","Successfully validated the credentials box.",STATUS.PASS,DriverAction.takeSnapShot());
+                GemTestReporter.addTestStep("Validate credentials box appears","Successfully validated the credentials box.",Status.PASS,DriverAction.takeSnapShot());
             }else{
-                GemTestReporter.addTestStep("Validate credentials box appears","Could not validate the credentials box.",STATUS.FAIL,DriverAction.takeSnapShot());
+                GemTestReporter.addTestStep("Validate credentials box appears","Could not validate the credentials box.",Status.FAIL,DriverAction.takeSnapShot());
             }
         }catch(Exception e){
-            GemTestReporter.addTestStep("Validate credentials box appears","Exception encountered- "+e,STATUS.ERR,DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Validate credentials box appears","Exception encountered- "+e,Status.ERR,DriverAction.takeSnapShot());
         }
     }
 
@@ -74,7 +74,7 @@ public class UserRegistrationLogin {
         try{
             DriverAction.click(LoginLocators.loginBtn,"Click the login button");
         }catch(Exception e){
-            GemTestReporter.addTestStep("Click the login button","Exception encountered- "+e,STATUS.ERR,DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Click the login button","Exception encountered- "+e,Status.ERR,DriverAction.takeSnapShot());
         }
     }
 
@@ -84,7 +84,7 @@ public class UserRegistrationLogin {
             DriverAction.typeText(LoginLocators.emailField,email);
             DriverAction.typeText(LoginLocators.passwordField,password);
         }catch(Exception e){
-            GemTestReporter.addTestStep("Enter email and password","Exception encountered- "+e,STATUS.ERR,DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Enter email and password","Exception encountered- "+e,Status.ERR,DriverAction.takeSnapShot());
         }
     }
 
@@ -92,12 +92,12 @@ public class UserRegistrationLogin {
     public void validateUserLogsInOnEnteringValidEmailAndPassword() {
         try{
             if(DriverAction.isDisplayed(LoginLocators.bondsHeading)) {
-                GemTestReporter.addTestStep("Validate user logs in on entering valid email and password", "User successfully logged in.", STATUS.PASS, DriverAction.takeSnapShot());
+                GemTestReporter.addTestStep("Validate user logs in on entering valid email and password", "User successfully logged in.", Status.PASS, DriverAction.takeSnapShot());
             }else{
-                GemTestReporter.addTestStep("Validate user logs in on entering valid email and password", "User successfully logged in.", STATUS.FAIL, DriverAction.takeSnapShot());
+                GemTestReporter.addTestStep("Validate user logs in on entering valid email and password", "User successfully logged in.", Status.FAIL, DriverAction.takeSnapShot());
             }
         }catch(Exception e){
-            GemTestReporter.addTestStep("Validate user logs in on entering valid email and password","Exception encountered- "+e,STATUS.ERR,DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Validate user logs in on entering valid email and password","Exception encountered- "+e,Status.ERR,DriverAction.takeSnapShot());
         }
     }
 
@@ -106,7 +106,7 @@ public class UserRegistrationLogin {
         try{
             DriverAction.click(LoginLocators.userProfile,"Click the profile icon");
         }catch(Exception e){
-            GemTestReporter.addTestStep("Click the profile icon","Exception encountered- "+e,STATUS.ERR,DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Click the profile icon","Exception encountered- "+e,Status.ERR,DriverAction.takeSnapShot());
         }
     }
 
@@ -115,12 +115,12 @@ public class UserRegistrationLogin {
         try{
             DriverAction.waitSec(5);
             if(DriverAction.isDisplayed(LoginLocators.loginBtn1)) {
-                GemTestReporter.addTestStep("Validate user logs out of the portal", "User successfully logged out.", STATUS.PASS, DriverAction.takeSnapShot());
+                GemTestReporter.addTestStep("Validate user logs out of the portal", "User successfully logged out.", Status.PASS, DriverAction.takeSnapShot());
             }else{
-                GemTestReporter.addTestStep("Validate user logs out of the portal", "User successfully logged out.", STATUS.FAIL, DriverAction.takeSnapShot());
+                GemTestReporter.addTestStep("Validate user logs out of the portal", "User successfully logged out.", Status.FAIL, DriverAction.takeSnapShot());
             }
         }catch(Exception e){
-            GemTestReporter.addTestStep("Validate user logs out of the portal","Exception encountered- "+e,STATUS.ERR,DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Validate user logs out of the portal","Exception encountered- "+e,Status.ERR,DriverAction.takeSnapShot());
         }
     }
 
@@ -128,12 +128,12 @@ public class UserRegistrationLogin {
     public void verifyConfirmationDialog() {
         try{
             if(DriverAction.isDisplayed(LoginLocators.logoutConfirmationModal)){
-                GemTestReporter.addTestStep("Verify confirmation dialog","Successfully verified confirmation modal.",STATUS.PASS,DriverAction.takeSnapShot());
+                GemTestReporter.addTestStep("Verify confirmation dialog","Successfully verified confirmation modal.",Status.PASS,DriverAction.takeSnapShot());
             }else{
-                GemTestReporter.addTestStep("Verify confirmation dialog","Could not verify confirmation modal.",STATUS.FAIL,DriverAction.takeSnapShot());
+                GemTestReporter.addTestStep("Verify confirmation dialog","Could not verify confirmation modal.",Status.FAIL,DriverAction.takeSnapShot());
             }
         }catch(Exception e){
-            GemTestReporter.addTestStep("Verify confirmation dialog","Exception encountered- "+e,STATUS.ERR,DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Verify confirmation dialog","Exception encountered- "+e,Status.ERR,DriverAction.takeSnapShot());
         }
     }
 
@@ -142,7 +142,7 @@ public class UserRegistrationLogin {
         try{
             DriverAction.click(By.xpath(LoginLocators.option.replace("input",option)),"Select the option- "+option);
         }catch(Exception e){
-            GemTestReporter.addTestStep("Select the option- "+option,"Exception encountered- "+e,STATUS.ERR,DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Select the option- "+option,"Exception encountered- "+e,Status.ERR,DriverAction.takeSnapShot());
         }
     }
 
@@ -152,7 +152,7 @@ public class UserRegistrationLogin {
             DriverAction.waitUntilElementClickable(LoginLocators.logoutButton,3);
             DriverAction.click(LoginLocators.logoutButton,"Click the logout button in confirmation dialog");
         }catch(Exception e){
-            GemTestReporter.addTestStep("Click the logout button in confirmation dialog","Exception encountered- "+e,STATUS.ERR,DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Click the logout button in confirmation dialog","Exception encountered- "+e,Status.ERR,DriverAction.takeSnapShot());
         }
     }
 
@@ -161,7 +161,7 @@ public class UserRegistrationLogin {
         try{
             DriverAction.click(LoginLocators.viewBondDetails,"View bond details.");
         }catch(Exception e){
-           GemTestReporter.addTestStep("View bond details","Exception encountered- "+e, STATUS.ERR);
+           GemTestReporter.addTestStep("View bond details","Exception encountered- "+e, Status.ERR);
         }
     }
 
@@ -169,7 +169,7 @@ public class UserRegistrationLogin {
     public void validateStateOfInvestNow() {
         try{
             boolean isActivated=false;
-            boolean statusFetched=false;
+            boolean StatusFetched=false;
             LocalDate currentDate = LocalDate.now();
 
             // Define the input date ("14 Dec, 2024") and specify the format
@@ -183,17 +183,17 @@ public class UserRegistrationLogin {
             if ((getAllotmentDate.isEqual(currentDate)||getAllotmentDate.isBefore(currentDate))&&((getMaturityDate.isEqual(currentDate)||getMaturityDate.isAfter(currentDate)))) {
                 isActivated=true;
             }
-            String status= DriverAction.getAttributeName(LoginLocators.buttonStatus,"disabled title");
-            if(status == null){
-                statusFetched=true;
+            String Status= DriverAction.getAttributeName(LoginLocators.buttonStatus,"disabled title");
+            if(Status == null){
+                StatusFetched=true;
             }
-            if(statusFetched==isActivated){
-               GemTestReporter.addTestStep("Validate status of invest now","Status of invest now is verified.",STATUS.PASS, DriverAction.takeSnapShot());
+            if(StatusFetched==isActivated){
+               GemTestReporter.addTestStep("Validate Status of invest now","Status of invest now is verified.", com.gemini.gemjar.enums.Status.PASS,DriverAction.takeSnapShot());
             }else{
-                GemTestReporter.addTestStep("Validate status of invest now","Status of invest now is not verified.",STATUS.FAIL, DriverAction.takeSnapShot());
+                GemTestReporter.addTestStep("Validate Status of invest now","Status of invest now is not verified.",com.gemini.gemjar.enums.Status.PASS,DriverAction.takeSnapShot());
             }
         }catch(Exception e){
-            GemTestReporter.addTestStep("Validate status of invest now","Exception encountered- "+e,STATUS.ERR,DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Validate Status of invest now","Exception encountered- "+e,Status.ERR,DriverAction.takeSnapShot());
         }
     }
 
@@ -206,7 +206,7 @@ public class UserRegistrationLogin {
                 DriverAction.click(BondLocators.watchlistIcon, "Click the watchlist icon");
 
         }catch(Exception e){
-            GemTestReporter.addTestStep("Click the watchlist icon","Exception encountered- "+e,STATUS.ERR,DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Click the watchlist icon","Exception encountered- "+e, Status.ERR,DriverAction.takeSnapShot());
         }
     }
 }

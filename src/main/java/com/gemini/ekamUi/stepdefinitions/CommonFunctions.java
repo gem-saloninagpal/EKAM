@@ -1,9 +1,9 @@
 package com.gemini.ekamUi.stepdefinitions;
 
 import com.gemini.ekamUi.locators.MyLocators;
-import com.gemini.generic.reporting.GemTestReporter;
-import com.gemini.generic.reporting.STATUS;
-import com.gemini.generic.ui.utils.DriverAction;
+import com.gemini.gemjar.enums.Status;
+import com.gemini.gemjar.reporting.GemTestReporter;
+import com.gemini.gemjar.utils.ui.DriverAction;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -19,12 +19,12 @@ public class CommonFunctions {
             String popupMessage= DriverAction.getElementText(MyLocators.popupMessage);
             System.out.println(popupMessage);
             if(popupMessage.equals("Bond added to watchlist")||popupMessage.equals("Bond removed from watchlist")){
-                GemTestReporter.addTestStep("Validate the popup message","Successfully validated the popup message", STATUS.PASS,DriverAction.takeSnapShot());
+                GemTestReporter.addTestStep("Validate the popup message","Successfully validated the popup message", Status.PASS,DriverAction.takeSnapShot());
             }else{
-                GemTestReporter.addTestStep("Validate the popup message","Could not validate the popup message", STATUS.FAIL,DriverAction.takeSnapShot());
+                GemTestReporter.addTestStep("Validate the popup message","Could not validate the popup message", Status.FAIL,DriverAction.takeSnapShot());
             }
         }catch(Exception e){
-            GemTestReporter.addTestStep("Validate the popup message","Exception encountered- "+e,STATUS.ERR,DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Validate the popup message","Exception encountered- "+e,Status.ERR,DriverAction.takeSnapShot());
         }
     }
 
@@ -33,7 +33,7 @@ public class CommonFunctions {
         try{
             DriverAction.click(By.xpath(MyLocators.tabSwitch.replace("input",tab)));
         }catch(Exception e){
-            GemTestReporter.addTestStep("Switch to "+tab,"Exception encountered- "+e,STATUS.ERR,DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Switch to "+tab,"Exception encountered- "+e,Status.ERR,DriverAction.takeSnapShot());
         }
     }
 
@@ -50,7 +50,7 @@ public class CommonFunctions {
                 robot.keyRelease(KeyEvent.VK_CONTROL);
             }
         } catch (Exception e) {
-            GemTestReporter.addTestStep("Change resolution", "Exception encountered- " + e, STATUS.ERR);
+            GemTestReporter.addTestStep("Change resolution", "Exception encountered- " + e, Status.ERR);
         }
 
     }

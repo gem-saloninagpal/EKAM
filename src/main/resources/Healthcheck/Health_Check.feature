@@ -9,7 +9,7 @@ Feature: Healthcheck
       | Endpoint  | Method|SampleName|StatusCode|
       | createBond| post  |createBond|201       |
 
-    @healthcheck
+  @healthcheck
   Scenario Outline: Update bond details based on ISIN
     Given Set endpoint "adminLogin" method "post" and SampleName "adminCredentials" for login
     And Set endpoint "<Endpoint>" with key "<Key>" from filepath "<Filepath>", method "<Method>" and SampleName "<SampleName>"
@@ -18,7 +18,7 @@ Feature: Healthcheck
       | Endpoint      | Method|SampleName |StatusCode|Filepath    |Key      |
       | getBondDetails| put   |bondDetails|      200 | bondDetails| bondIsin|
 
-      @healthcheck
+  @healthcheck
   Scenario Outline: Update bond text data details based on ISIN
     Given Set endpoint "adminLogin" method "post" and SampleName "adminCredentials" for login
     And Set endpoint "<Endpoint>" with key "<Key>" from filepath "<Filepath>", method "<Method>" and SampleName "<SampleName>"
@@ -27,7 +27,7 @@ Feature: Healthcheck
       | Endpoint           | Method|SampleName         |StatusCode|Filepath            |Key      |
       | bondTextDataDetails| put   |bondTextDataDetails|      200 | bondTextDataDetails| bondIsin|
 
-      @healthcheck
+  @healthcheck
   Scenario Outline: Retrieve all bonds
     Given Set endpoint "adminLogin" method "post" and SampleName "adminCredentials" for login
     And Set endpoint "<Endpoint>" and Method "<Method>"
@@ -36,7 +36,7 @@ Feature: Healthcheck
       | Endpoint        | Method|StatusCode|
       | retrieveAllBonds| get   |200       |
 
-      @healthcheck
+  @healthcheck
   Scenario Outline: Retrieve filtered bonds
     Given Set endpoint "adminLogin" method "post" and SampleName "adminCredentials" for login
     And Set endpoint "<Endpoint>" method "<Method>" and SampleName "<SampleName>"
@@ -45,7 +45,7 @@ Feature: Healthcheck
       | Endpoint        | Method|SampleName      |StatusCode|
       | getFilteredBonds| post  |createListedBond|200       |
 
-     @healthcheck
+  @healthcheck
   Scenario Outline: Retrieve bond listing dropdowns
     Given Set endpoint "adminLogin" method "post" and SampleName "adminCredentials" for login
     And Set endpoint "<Endpoint>" and Method "<Method>"
@@ -65,14 +65,14 @@ Feature: Healthcheck
 #    | Endpoint                  | Method|StatusCode|Endpoint2|Method2|SampleName|
 #    | unlistedBondDetailsOnISIN | get   |200       |createBond|post  |createBond|
 
-    @healthcheck
+  @healthcheck
   Scenario Outline: Update bond details based on ISIN
     Given Set endpoint "adminLogin" method "post" and SampleName "adminCredentials" for login
     And Set endpoint "<Endpoint>" with key "<Key>" from filepath "<Filepath>", method "<Method>" and SampleName "<SampleName>"
     Then Verify Status code <StatusCode>
     Examples:
-    | Endpoint      | Method|SampleName |StatusCode|Filepath    |Key      |
-    | getBondDetails| put   |bondDetails|      200 | bondDetails| bondIsin|
+      | Endpoint      | Method|SampleName |StatusCode|Filepath    |Key      |
+      | getBondDetails| put   |bondDetails|      200 | bondDetails| bondIsin|
 
   @healthcheck
   Scenario Outline: Retrieve cashflow
@@ -80,10 +80,10 @@ Feature: Healthcheck
     And Set endpoint "<Endpoint>" method "<Method>" and SampleName "<SampleName>"
     Then Verify Status code <StatusCode>
     Examples:
-    | Endpoint        | Method|SampleName      |StatusCode|
-    | retrieveCashflow| post  |retrieveCashflow|200       |
+      | Endpoint        | Method|SampleName      |StatusCode|
+      | retrieveCashflow| post  |retrieveCashflow|200       |
 
-    @healthcheck
+  @healthcheck
   Scenario Outline: Retrieve bond details based on name
     Given Set endpoint "adminLogin" method "post" and SampleName "adminCredentials" for login
     And Set endpoint "<Endpoint>" and Method "<Method>"
@@ -92,7 +92,7 @@ Feature: Healthcheck
       | Endpoint          | Method|StatusCode|
       | retrieveBondOnName| get   |200       |
 
-    @healthcheck
+  @healthcheck
   Scenario Outline: Retrieve bond filters
     Given Set endpoint "login" method "post" and SampleName "credentials" for login
     And Set endpoint "<Endpoint>" and Method "<Method>"
@@ -101,7 +101,7 @@ Feature: Healthcheck
       | Endpoint    | Method|StatusCode|
       | bondFilters | get   |200       |
 
-    @healthcheck
+  @healthcheck
   Scenario Outline: Send notification for new bonds
     Given Set endpoint "login" method "post" and SampleName "credentials" for login
     And Set endpoint "<Endpoint>" method "<Method>" and SampleName "<SampleName>"
@@ -110,7 +110,7 @@ Feature: Healthcheck
       | Endpoint        | Method|SampleName      |StatusCode|
       | sendNotification| post  |sendNotification|200       |
 
-      @healthcheck
+  @healthcheck
   Scenario Outline: Retrieve notification preference
     Given Set endpoint "login" method "post" and SampleName "credentials" for login
     And Set endpoint "<Endpoint>" with subject and method "<Method>"
@@ -119,7 +119,7 @@ Feature: Healthcheck
       | Endpoint                  | Method|StatusCode|
       | getNotificationPreference | get   |200       |
 
-      @healthcheck
+  @healthcheck
   Scenario Outline: Get order by user id
     Given Set endpoint "login" method "post" and SampleName "credentials" for login
     And Set endpoint "<Endpoint>" with subject and method "<Method>"
@@ -128,7 +128,7 @@ Feature: Healthcheck
       | Endpoint         | Method|StatusCode|
       | getOrderByUserId | get   |200       |
 
-        @healthcheck
+  @healthcheck
   Scenario Outline: Create order
     Given Set endpoint "adminLogin" method "post" and SampleName "adminCredentials" for login
     And Set endpoint "<Endpoint2>" method "<Method2>" and SampleName "<SampleName2>"
@@ -139,7 +139,7 @@ Feature: Healthcheck
       | Endpoint   | Method|SampleName|StatusCode|Endpoint2|Method2|SampleName2|
       | createOrder| post  |bondInfo  |201       |createBond|post  |createBond|
 
-          @healthcheck
+  @healthcheck
   Scenario Outline: Retrieve all bonds - user portal
     Given Set endpoint "login" method "post" and SampleName "credentials" for login
     And Set endpoint "<Endpoint>" and Method "<Method>"
@@ -148,7 +148,7 @@ Feature: Healthcheck
       | Endpoint    | Method|StatusCode|
       | getAllBonds |  get  | 200      |
 
-            @healthcheck
+  @healthcheck
   Scenario Outline: Retrieving top 3 bonds to show on Landing Page
     Given Set endpoint "login" method "post" and SampleName "credentials" for login
     And Set endpoint "<Endpoint>" and Method "<Method>"
@@ -157,7 +157,7 @@ Feature: Healthcheck
       | Endpoint          | Method|StatusCode|
       | retrieveTop3Bonds |  get  | 200      |
 
-       @healthcheck
+  @healthcheck
   Scenario Outline: Get Portfolio details of User
     Given Set endpoint "login" method "post" and SampleName "credentials" for login
     And Set endpoint "<Endpoint>" with subject and method "<Method>"
@@ -166,7 +166,7 @@ Feature: Healthcheck
       | Endpoint            | Method|StatusCode|
       | getPortfolioDetails | get   |200       |
 
-        @healthcheck
+  @healthcheck
   Scenario Outline: Create existing user
     Given Set endpoint "login" method "post" and SampleName "credentials" for login
     Given Set endpoint "<Endpoint>" method "<Method>" and SampleName "<SampleName>" for login
@@ -175,7 +175,7 @@ Feature: Healthcheck
       | Endpoint  | Method|SampleName             |StatusCode|
       | createUser| post  |existingUserCredentials|409       |
 
-          @healthcheck
+  @healthcheck
   Scenario Outline: Retrieve user watchlist
     Given Set endpoint "login" method "post" and SampleName "credentials" for login
     And Set endpoint "<Endpoint>" and Method "<Method>"

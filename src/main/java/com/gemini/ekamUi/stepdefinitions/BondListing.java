@@ -1,9 +1,9 @@
 package com.gemini.ekamUi.stepdefinitions;
 
 import com.gemini.ekamUi.locators.BondLocators;
-import com.gemini.generic.reporting.GemTestReporter;
-import com.gemini.generic.reporting.STATUS;
-import com.gemini.generic.ui.utils.DriverAction;
+import com.gemini.gemjar.enums.Status;
+import com.gemini.gemjar.reporting.GemTestReporter;
+import com.gemini.gemjar.utils.ui.DriverAction;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -20,12 +20,12 @@ public class BondListing {
         try{
             String bond= DriverAction.getElementText(BondLocators.watchlistedBond);
             if(UserRegistrationLogin._watchlistedBond.equals(bond)){
-                GemTestReporter.addTestStep("Validate bookmarked bond under watchlist","Successfully validated the bookmarked bond under watchlist", STATUS.PASS,DriverAction.takeSnapShot());
+                GemTestReporter.addTestStep("Validate bookmarked bond under watchlist","Successfully validated the bookmarked bond under watchlist", Status.PASS,DriverAction.takeSnapShot());
             }else{
-                GemTestReporter.addTestStep("Validate bookmarked bond under watchlist","Could not validate the bookmarked bond under watchlist", STATUS.FAIL,DriverAction.takeSnapShot());
+                GemTestReporter.addTestStep("Validate bookmarked bond under watchlist","Could not validate the bookmarked bond under watchlist", Status.FAIL,DriverAction.takeSnapShot());
             }
         }catch(Exception e){
-            GemTestReporter.addTestStep("Validate bookmarked bond under watchlist","Exception encountered- "+e, STATUS.ERR,DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Validate bookmarked bond under watchlist","Exception encountered- "+e, Status.ERR,DriverAction.takeSnapShot());
         }
     }
 
@@ -35,7 +35,7 @@ public class BondListing {
             DriverAction.waitUntilElementIsClickable(BondLocators.watchlistIcon);
             DriverAction.typeText(BondLocators.searchbar,bond,"Search a bond- "+bond);
         }catch(Exception e){
-            GemTestReporter.addTestStep("Enter text to search- "+bond,"Exception encountered- "+e,STATUS.ERR,DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Enter text to search- "+bond,"Exception encountered- "+e,Status.ERR,DriverAction.takeSnapShot());
         }
     }
 
@@ -51,12 +51,12 @@ public class BondListing {
                 }
             }
             if(c==bonds.size()){
-                GemTestReporter.addTestStep("Verify records get filtered on the basis of searched bond","Successfully verified.",STATUS.PASS,DriverAction.takeSnapShot());
+                GemTestReporter.addTestStep("Verify records get filtered on the basis of searched bond","Successfully verified.", Status.PASS,DriverAction.takeSnapShot());
             }else{
-                GemTestReporter.addTestStep("Verify records get filtered on the basis of searched bond","Could not verify.",STATUS.FAIL,DriverAction.takeSnapShot());
+                GemTestReporter.addTestStep("Verify records get filtered on the basis of searched bond","Could not verify.",Status.FAIL,DriverAction.takeSnapShot());
             }
         }catch(Exception e){
-            GemTestReporter.addTestStep("Verify records get filtered on the basis of searched bond","Exception encountered- "+e,STATUS.ERR,DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Verify records get filtered on the basis of searched bond","Exception encountered- "+e,Status.ERR,DriverAction.takeSnapShot());
         }
     }
 
@@ -66,7 +66,7 @@ public class BondListing {
             DriverAction.waitUntilElementIsClickable(By.xpath(BondLocators.bondFilterDropdown.replace("input",filter)));
             DriverAction.click(By.xpath(BondLocators.bondFilterDropdown.replace("input",filter)));
         }catch(Exception e){
-            GemTestReporter.addTestStep("Expand rating dropdown","Exception encountered- "+e,STATUS.ERR,DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Expand rating dropdown","Exception encountered- "+e,Status.ERR,DriverAction.takeSnapShot());
         }
     }
 
@@ -76,7 +76,7 @@ public class BondListing {
             rating=option;
             DriverAction.click(By.xpath(BondLocators.filterOption.replace("input",rating)));
         }catch(Exception e){
-            GemTestReporter.addTestStep("Select option- "+rating,"Exception encountered- "+e,STATUS.ERR,DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Select option- "+rating,"Exception encountered- "+e,Status.ERR,DriverAction.takeSnapShot());
         }
     }
 
@@ -87,13 +87,13 @@ public class BondListing {
             List<WebElement>ratings=DriverAction.getElements(BondLocators.getRating);
             for(int i=0;i<bonds.size();i++) {
               if(!ratings.get(i).getText().contains(optionSelected)){
-                  GemTestReporter.addTestStep("Validate records on the basis of rating","Could not validate records on the basis of rating.",STATUS.FAIL,DriverAction.takeSnapShot());
+                  GemTestReporter.addTestStep("Validate records on the basis of rating","Could not validate records on the basis of rating.",Status.FAIL,DriverAction.takeSnapShot());
                   System.exit(0);
               }
             }
-            GemTestReporter.addTestStep("Validate records on the basis of rating","Successfully validated the filtered records on the basis of rating.",STATUS.PASS,DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Validate records on the basis of rating","Successfully validated the filtered records on the basis of rating.",Status.PASS,DriverAction.takeSnapShot());
         }catch(Exception e){
-            GemTestReporter.addTestStep("Validate records on the basis of rating","Exception encountered- "+e,STATUS.ERR,DriverAction.takeSnapShot());
+            GemTestReporter.addTestStep("Validate records on the basis of rating","Exception encountered- "+e,Status.ERR,DriverAction.takeSnapShot());
         }
     }
 }

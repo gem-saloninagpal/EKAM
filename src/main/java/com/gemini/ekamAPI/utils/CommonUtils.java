@@ -1,5 +1,8 @@
 package com.gemini.ekamAPI.utils;
 
+//import com.auth0.jwt.JWT;
+//import com.auth0.jwt.interfaces.DecodedJWT;
+
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -7,13 +10,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.gemini.ekamAPI.stepDefinition.APIStepDefinition;
-import com.gemini.generic.api.utils.ApiInvocation;
-import com.gemini.generic.api.utils.ProjectSampleJson;
-import com.gemini.generic.api.utils.Request;
-import com.gemini.generic.api.utils.Response;
-import com.gemini.generic.reporting.GemTestReporter;
-import com.gemini.generic.reporting.STATUS;
-import com.gemini.generic.utils.ProjectConfigData;
+import com.gemini.gemjar.enums.Status;
+import com.gemini.gemjar.reporting.GemTestReporter;
+import com.gemini.gemjar.utils.api.ApiInvocation;
+import com.gemini.gemjar.utils.api.ProjectSampleJson;
+import com.gemini.gemjar.utils.api.Request;
+import com.gemini.gemjar.utils.api.Response;
+import com.gemini.gemjar.utils.app.ProjectConfigData;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -25,6 +28,7 @@ import java.util.Map;
 import java.util.Random;
 
 import static com.gemini.ekamAPI.stepDefinition.APIStepDefinition.appendSubjectInEndpoint;
+//import static sun.jvm.hotspot.debugger.win32.coff.DebugVC50X86RegisterEnums.Status;
 
 public class CommonUtils {
     public static String url;
@@ -42,10 +46,10 @@ public class CommonUtils {
             request.setBaseUrl("https://bondui.geminisolutions.com/#/");
             appendSubjectInEndpoint();
             if (!APIStepDefinition.appendedUrl.equals(url)) {
-                GemTestReporter.addTestStep("Url of the test case", APIStepDefinition.appendedUrl, STATUS.INFO);
+                GemTestReporter.addTestStep("Url of the test case", APIStepDefinition.appendedUrl, Status.INFO);
                 request.setURL(APIStepDefinition.appendedUrl);
             } else {
-                GemTestReporter.addTestStep("Url of the test case", url, STATUS.INFO);
+                GemTestReporter.addTestStep("Url of the test case", url, Status.INFO);
                 request.setURL(url);
             }
             request.setHeader("Authorization", "Bearer " + tokenForAuth);
@@ -59,16 +63,16 @@ public class CommonUtils {
 //            }
             response = ApiInvocation.handleRequest(request);
 //            token =response.getJsonObject().get("jwttoken").toString();
-            GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), STATUS.INFO);
+            GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), Status.INFO);
             if ((response.getResponseBody()) != null) {
-                GemTestReporter.addTestStep("Response Body", response.getResponseBody(), STATUS.INFO);
+                GemTestReporter.addTestStep("Response Body", response.getResponseBody(), Status.INFO);
             } else {
-                GemTestReporter.addTestStep("Response Body", "No-Response", STATUS.INFO);
+                GemTestReporter.addTestStep("Response Body", "No-Response", Status.INFO);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            GemTestReporter.addTestStep(method.toUpperCase() + " Request Verification ", method.toUpperCase() + " Request Did not Executed Successfully", STATUS.FAIL);
-            GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), STATUS.INFO);
+            GemTestReporter.addTestStep(method.toUpperCase() + " Request Verification ", method.toUpperCase() + " Request Did not Executed Successfully", Status.FAIL);
+            GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), Status.INFO);
         }
         return response;
     }
@@ -82,10 +86,10 @@ public class CommonUtils {
             request.setBaseUrl("https://bondui.geminisolutions.com/#/");
             appendSubjectInEndpoint();
             if (!APIStepDefinition.appendedUrl.equals(url)) {
-                GemTestReporter.addTestStep("Url of the test case", APIStepDefinition.appendedUrl, STATUS.INFO);
+                GemTestReporter.addTestStep("Url of the test case", APIStepDefinition.appendedUrl, Status.INFO);
                 request.setURL(APIStepDefinition.appendedUrl);
             } else {
-                GemTestReporter.addTestStep("Url of the test case", url, STATUS.INFO);
+                GemTestReporter.addTestStep("Url of the test case", url, Status.INFO);
                 request.setURL(url);
             }
             request.setHeader("Authorization", "Bearer " + tokenForAuth);
@@ -102,16 +106,16 @@ public class CommonUtils {
             }
             response = ApiInvocation.handleRequest(request);
 //            token =response.getJsonObject().get("jwttoken").toString();
-            GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), STATUS.INFO);
+            GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), Status.INFO);
             if ((response.getResponseBody()) != null) {
-                GemTestReporter.addTestStep("Response Body", response.getResponseBody(), STATUS.INFO);
+                GemTestReporter.addTestStep("Response Body", response.getResponseBody(), Status.INFO);
             } else {
-                GemTestReporter.addTestStep("Response Body", "No-Response", STATUS.INFO);
+                GemTestReporter.addTestStep("Response Body", "No-Response", Status.INFO);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            GemTestReporter.addTestStep(method.toUpperCase() + " Request Verification ", method.toUpperCase() + " Request Did not Executed Successfully", STATUS.FAIL);
-            GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), STATUS.INFO);
+            GemTestReporter.addTestStep(method.toUpperCase() + " Request Verification ", method.toUpperCase() + " Request Did not Executed Successfully", Status.FAIL);
+            GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), Status.INFO);
         }
         return response;
     }
@@ -122,7 +126,7 @@ public class CommonUtils {
             Request request = new Request();
             url = ProjectConfigData.getProperty(UrlNameFromConfig);
             request.setBaseUrl("https://bondui.geminisolutions.com/#/");
-            GemTestReporter.addTestStep("Url of the test case", url, STATUS.INFO);
+            GemTestReporter.addTestStep("Url of the test case", url, Status.INFO);
             request.setURL(url);
             request.setHeader("Authorization", "Bearer " + tokenForAuth);
             request.setMethod(method);
@@ -139,16 +143,16 @@ public class CommonUtils {
             }
             response = ApiInvocation.handleRequest(request);
 //            token =response.getJsonObject().get("jwttoken").toString();
-            GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), STATUS.INFO);
+            GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), Status.INFO);
             if ((response.getResponseBody()) != null) {
-                GemTestReporter.addTestStep("Response Body", response.getResponseBody(), STATUS.INFO);
+                GemTestReporter.addTestStep("Response Body", response.getResponseBody(), Status.INFO);
             } else {
-                GemTestReporter.addTestStep("Response Body", "No-Response", STATUS.INFO);
+                GemTestReporter.addTestStep("Response Body", "No-Response", Status.INFO);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            GemTestReporter.addTestStep(method.toUpperCase() + " Request Verification ", method.toUpperCase() + " Request Did not Executed Successfully", STATUS.FAIL);
-            GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), STATUS.INFO);
+            GemTestReporter.addTestStep(method.toUpperCase() + " Request Verification ", method.toUpperCase() + " Request Did not Executed Successfully", Status.FAIL);
+            GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), Status.INFO);
         }
         return response;
     }
@@ -161,7 +165,7 @@ public class CommonUtils {
             url = ProjectConfigData.getProperty(UrlNameFromConfig);
             url += _newBondIsin;
             request.setBaseUrl("https://bondui.geminisolutions.com/#/");
-            GemTestReporter.addTestStep("Url of the test case", url, STATUS.INFO);
+            GemTestReporter.addTestStep("Url of the test case", url, Status.INFO);
             request.setURL(url);
             request.setHeader("Authorization", "Bearer " + tokenForAuth);
             request.setMethod(method);
@@ -175,25 +179,25 @@ public class CommonUtils {
             }
             response = ApiInvocation.handleRequest(request);
 //            token =response.getJsonObject().get("jwttoken").toString();
-            GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), STATUS.INFO);
+            GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), Status.INFO);
             if ((response.getResponseBody()) != null) {
-                GemTestReporter.addTestStep("Response Body", response.getResponseBody(), STATUS.INFO);
+                GemTestReporter.addTestStep("Response Body", response.getResponseBody(), Status.INFO);
             } else {
-                GemTestReporter.addTestStep("Response Body", "No-Response", STATUS.INFO);
+                GemTestReporter.addTestStep("Response Body", "No-Response", Status.INFO);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            GemTestReporter.addTestStep(method.toUpperCase() + " Request Verification ", method.toUpperCase() + " Request Did not Executed Successfully", STATUS.FAIL);
-            GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), STATUS.INFO);
+            GemTestReporter.addTestStep(method.toUpperCase() + " Request Verification ", method.toUpperCase() + " Request Did not Executed Successfully", Status.FAIL);
+            GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), Status.INFO);
         }
         return response;
     }
 
 
     public static void statusValidation(int actual, int expected) {
-        STATUS status = actual == expected ? STATUS.PASS : STATUS.FAIL;
+        Status STATUS = actual == expected ? Status.PASS : Status.FAIL;
         GemTestReporter.addTestStep("Status Validation", "Expected: " + expected
-                + " Actual: " + actual, status);
+                + " Actual: " + actual, STATUS);
     }
 
     public static Response HitLoginAPI(String UrlNameFromConfig, String method, String step, String sampleName) {
@@ -201,7 +205,7 @@ public class CommonUtils {
         try {
             Request request = new Request();
             String url = ProjectConfigData.getProperty(UrlNameFromConfig);
-            GemTestReporter.addTestStep("Url of the test case", url, STATUS.INFO);
+            GemTestReporter.addTestStep("Url of the test case", url, Status.INFO);
             request.setURL(url);
             request.setMethod(method);
             if (step != null) {
@@ -217,16 +221,16 @@ public class CommonUtils {
             subject = jwtToken(tokenForAuth);
             System.out.println(subject);
             setUserId();
-            GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), STATUS.INFO);
+            GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), Status.INFO);
             if ((response.getResponseBody()) != null) {
-                GemTestReporter.addTestStep("Response Body", response.getResponseBody(), STATUS.INFO);
+                GemTestReporter.addTestStep("Response Body", response.getResponseBody(), Status.INFO);
             } else {
-                GemTestReporter.addTestStep("Response Body", "No-Response", STATUS.INFO);
+                GemTestReporter.addTestStep("Response Body", "No-Response", Status.INFO);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            GemTestReporter.addTestStep(method.toUpperCase() + " Request Verification ", method.toUpperCase() + " Request Did not Executed Successfully", STATUS.FAIL);
-            GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), STATUS.INFO);
+            GemTestReporter.addTestStep(method.toUpperCase() + " Request Verification ", method.toUpperCase() + " Request Did not Executed Successfully", Status.FAIL);
+            GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), Status.INFO);
         }
         return response;
     }
@@ -276,10 +280,10 @@ public class CommonUtils {
             request.setBaseUrl("https://bondui.geminisolutions.com/#/");
             appendKeyInEndpoint(key, filePath);
             if (!APIStepDefinition.appendedUrl.equals(url)) {
-                GemTestReporter.addTestStep("Url of the test case", APIStepDefinition.appendedUrl, STATUS.INFO);
+                GemTestReporter.addTestStep("Url of the test case", APIStepDefinition.appendedUrl, Status.INFO);
                 request.setURL(APIStepDefinition.appendedUrl);
             } else {
-                GemTestReporter.addTestStep("Url of the test case", url, STATUS.INFO);
+                GemTestReporter.addTestStep("Url of the test case", url, Status.INFO);
                 request.setURL(url);
             }
             request.setHeader("Authorization", "Bearer " + tokenForAuth);
@@ -293,16 +297,16 @@ public class CommonUtils {
             }
             response = ApiInvocation.handleRequest(request);
 //            token =response.getJsonObject().get("jwttoken").toString();
-            GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), STATUS.INFO);
+            GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), Status.INFO);
             if ((response.getResponseBody()) != null) {
-                GemTestReporter.addTestStep("Response Body", response.getResponseBody(), STATUS.INFO);
+                GemTestReporter.addTestStep("Response Body", response.getResponseBody(), Status.INFO);
             } else {
-                GemTestReporter.addTestStep("Response Body", "No-Response", STATUS.INFO);
+                GemTestReporter.addTestStep("Response Body", "No-Response", Status.INFO);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            GemTestReporter.addTestStep(method.toUpperCase() + " Request Verification ", method.toUpperCase() + " Request Did not Executed Successfully", STATUS.FAIL);
-            GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), STATUS.INFO);
+            GemTestReporter.addTestStep(method.toUpperCase() + " Request Verification ", method.toUpperCase() + " Request Did not Executed Successfully", Status.FAIL);
+            GemTestReporter.addTestStep("Response Message", response.getResponseMessage(), Status.INFO);
         }
         return response;
     }
@@ -319,7 +323,7 @@ public class CommonUtils {
             APIStepDefinition.appendKeyInEndpoint();
 
         } catch (Exception e) {
-            GemTestReporter.addTestStep("Append key in endpoint", "Exception encountered- " + e, STATUS.ERR);
+            GemTestReporter.addTestStep("Append key in endpoint", "Exception encountered- " + e, Status.ERR);
         }
     }
 
@@ -348,7 +352,7 @@ public class CommonUtils {
             System.out.println("Updated JSON file successfully!");
 
         } catch (Exception e) {
-            GemTestReporter.addTestStep("Set new value for the key of- " + filePath, "Exception encountered- " + e, STATUS.ERR);
+            GemTestReporter.addTestStep("Set new value for the key of- " + filePath, "Exception encountered- " + e, Status.ERR);
         }
     }
 
