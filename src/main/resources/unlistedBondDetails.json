@@ -1,0 +1,41 @@
+{
+  "bondIsin": "IN0000003456",
+  "totalIssueSize": 0,
+  "debtCount": 0,
+  "seniority": "string",
+  "modeOfIssue": "string",
+  "promoter": "string",
+  "purpose": "string",
+  "ratingAgency": "string",
+  "rating": "AAA",
+  "debtTrustee": "string",
+  "recordDate": "03-09-2024",
+  "initialSubsDate": "03-09-2024",
+  "dayCountBasis": "string",
+  "redemptionPremium": 0,
+  "debtIssuanceMode": "string",
+  "debtTradeMode": "string",
+  "debtSettlementMode": "string",
+  "depository": "string",
+  "couponResetProcess": "string",
+  "defaultInterestRate": 0,
+  "principalRedemption": "string",
+  "ratingSuffix": "SO",
+  "initialSubscription": 0,
+  "additionalSubscription": 0,
+  "interestOnApplicationMoney": 0,
+  "isPartialPrincipalRepayment": true,
+  "principalRepaymentFrequency": "Monthly",
+  "isExclusive": true,
+  "isCallable": true,
+  "isPutable": true,
+  "isDraft": true,
+  "callableDate": "03-09-2024",
+  "putableDate": "03-09-2024",
+  "repaymentSchedules": [
+    {
+      "repaymentDate": "03-09-2024",
+      "percentage": 0
+    }
+  ]
+}

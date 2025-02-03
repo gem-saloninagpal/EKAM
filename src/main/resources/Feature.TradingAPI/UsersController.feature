@@ -17,6 +17,7 @@ Feature:Bond trading-users controller
 #      | deleteUser| post  |deleteUser|200       |
 
   Scenario Outline: Create user
+    Given Set endpoint "login" method "post" and SampleName "credentials" for login
     Given Set endpoint "<Endpoint>" method "<Method>" and SampleName "<SampleName>" for login
     Then Verify Status code <StatusCode>
     Examples:
@@ -32,6 +33,7 @@ Feature:Bond trading-users controller
 #       | Endpoint| Method|StatusCode|
 #       | getUser | get   |200       |
 
+ # @discuss- post request does not execute w/o login
    Scenario Outline: Forgot password
      Given Set endpoint "<Endpoint>" method "<Method>" and SampleName "<SampleName>" for login
      Then Verify Status code <StatusCode>

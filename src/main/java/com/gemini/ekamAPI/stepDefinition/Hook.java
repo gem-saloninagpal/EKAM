@@ -1,4 +1,4 @@
-package com.gemini.athenaAPI.stepDefinition;
+package com.gemini.ekamAPI.stepDefinition;
 
 import com.gemini.generic.exception.GemException;
 import com.gemini.generic.ui.utils.DriverManager;

@@ -1,0 +1,20 @@
+{
+  "faceValue": 0,
+  "coupon": 0,
+  "redemptionPremium": 0,
+  "interestFrequency": "Monthly",
+  "partialPrincipalRepayment": true,
+  "principalRepaymentFrequency": "Monthly",
+  "repaymentSchedules": [
+    {
+      "repaymentDate": "20-01-2025",
+      "percentage": 0,
+      "amount": 0
+    }
+  ],
+  "dayCountBasis": "30/360",
+  "allotmentDate": "20-01-2025",
+  "issueDate": "20-01-2025",
+  "nextCouponPayDate": "20-01-2025",
+  "maturityDate": "20-01-2025"
+}

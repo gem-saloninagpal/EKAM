@@ -1,10 +1,8 @@
-package com.gemini.athenaUi.stepdefinitions;
+package com.gemini.ekamUi.stepdefinitions;
 
 import com.gemini.generic.exception.GemException;
-import com.gemini.generic.ui.utils.DriverAction;
 import com.gemini.generic.ui.utils.DriverManager;
 import io.cucumber.java.Before;
-import io.cucumber.java.en.When;
 
 
 public class Hook {
@@ -13,6 +11,10 @@ public class Hook {
         DriverManager.setUpBrowser();
     }
 
+//    @After
+//    public static void afterHook() throws GemException {
+//        DriverManager.closeDriver();
+//    }
 }
 
 

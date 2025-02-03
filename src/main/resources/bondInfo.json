@@ -1,9 +1,10 @@
 {
-  "bondIsin": "IN0000000055",
-  "orderStatus": "PENDING",
-  "transactionType": "BUY",
-  "quantity": 0,
-  "price": 0,
-  "coupon": 0,
-  "dpID": "string"
+  "transactionType" : "Buy",
+  "bondIsin" : "INHZH611BB44",
+  "amount" : 0,
+  "transactionMethod" : "Credit Card",
+  "quantity" : 0,
+  "coupon" : 0,
+  "price" : 0,
+  "dpID" : "string"
 }

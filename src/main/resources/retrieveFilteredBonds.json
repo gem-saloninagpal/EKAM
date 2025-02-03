@@ -1,0 +1,17 @@
+{
+  "tenure": [
+    0
+  ],
+  "ratings": [
+    "AAA+"
+  ],
+  "isSecured": true,
+  "couponPaymentFreq": [
+    "Monthly"
+  ],
+  "isCallable": true,
+  "isPutable": true,
+  "sortBy": "YIELD",
+  "sortAscending": true,
+  "bondName": "string"
+}

@@ -1,7 +1,9 @@
 {
-  "userId" : "481692",
+  "id" : 481633,
   "emailAlerts" : true,
   "smsAlerts" : true,
   "whatsappAlerts" : true,
-  "pushNotifications" : true
+  "pushNotifications" : true,
+  "notificationCategory" : "ACCOUNT",
+  "userId" : "481633"
 }

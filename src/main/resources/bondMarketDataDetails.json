@@ -1,0 +1,5 @@
+{
+  "bondIsin": "string",
+  "currentPrice": 10,
+  "coupon": 80
+}

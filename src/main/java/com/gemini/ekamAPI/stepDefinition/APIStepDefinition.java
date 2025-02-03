@@ -1,6 +1,6 @@
-package com.gemini.athenaAPI.stepDefinition;
+package com.gemini.ekamAPI.stepDefinition;
 
-import com.gemini.athenaAPI.utils.CommonUtils;
+import com.gemini.ekamAPI.utils.CommonUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -19,7 +19,14 @@ public class APIStepDefinition {
     public void setEndpointMethodAndSampleName(String endpoint, String method, String sampleName) {
         System.out.println("helloooooo!!!!!!!!!");
         statusCode = CommonUtils.HitAPI(endpoint, method, null,sampleName).getStatus();
+        System.out.print(statusCode);
     }
+
+    @Given("Set endpoint {string} with isin and Method {string}")
+    public void setEndpointWithIsinAndMethod(String endpoint, String method) {
+        statusCode = CommonUtils.HitAPIAndUpdateIsin(endpoint, method,null,null).getStatus();
+    }
+
 
     @Given("Set endpoint {string} with subject, method {string} and SampleName {string}")
     public void setEndpointWithSubjectMethodAndMethod(String endpoint, String method, String sampleName) {
@@ -51,6 +58,17 @@ public class APIStepDefinition {
     @And("Append subject in endpoint")
     public static void appendSubjectInEndpoint() {
         appendedUrl= CommonUtils.url + CommonUtils.subject;
+    }
+
+
+    @And("Set endpoint {string} with key {string} from filepath {string}, method {string} and SampleName {string}")
+    public void setEndpointWithKeyMethodAndSampleName(String endpoint, String key, String method, String sampleName, String filePath) {
+        CommonUtils.appendKeyWithEndpoint(endpoint, method, null, sampleName, key, filePath);
+    }
+
+    @And("Append key in endpoint")
+    public static void appendKeyInEndpoint() {
+        appendedUrl= CommonUtils.url + CommonUtils.value;
     }
 
 

@@ -1,0 +1,41 @@
+{
+  "bondIsin": "strii90ng",
+  "totalIssueSize": 0,
+  "debtCount": 0,
+  "seniority": "string",
+  "modeOfIssue": "string",
+  "promoter": "string",
+  "purpose": "string",
+  "ratingAgency": "string",
+  "rating": "AAA",
+  "debtTrustee": "string",
+  "recordDate": "04-09-2025",
+  "initialSubsDate": "04-09-2025",
+  "dayCountBasis": "string",
+  "redemptionPremium": 0,
+  "debtIssuanceMode": "string",
+  "debtTradeMode": "string",
+  "debtSettlementMode": "string",
+  "depository": "string",
+  "couponResetProcess": "string",
+  "defaultInterestRate": 0,
+  "principalRedemption": "string",
+  "ratingSuffix": "SO",
+  "initialSubscription": 0,
+  "additionalSubscription": 0,
+  "interestOnApplicationMoney": 0,
+  "isPartialPrincipalRepayment": true,
+  "principalRepaymentFrequency": "Monthly",
+  "isExclusive": true,
+  "isCallable": true,
+  "isPutable": true,
+  "isDraft": true,
+  "callableDate": "04-09-2025",
+  "putableDate": "04-09-2025",
+  "repaymentSchedules": [
+    {
+      "repaymentDate": "04-09-2025",
+      "percentage": 0
+    }
+  ]
+}

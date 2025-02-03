@@ -1,16 +1,17 @@
-environment: beta
-project_name: EKAM
+environment: prod
+project_name: EKAM AUTOMATION
 jewel_user: saloni
-#jewel_bridge_token: c8eda5ea-71db-4483-b021-1e4603efb2791710420130467
+#jewel_bridge_token: 5f1361fc-64d5-4c28-8ca6-6153a0e0b1411736329300728
 #enter_point: https://betaapi.gemecosystem.com/gemEcosystemDashboard/v1/enter-point
 #prod token
-jewel_bridge_token: eb309270-b933-4469-af72-6e051464e2ad1687930868387
+jewel_bridge_token: f82db7ae-0c39-420b-8bc1-f1ba4e13f9581736400361273
 enter_point: https://apis.gemecosystem.com/gemEcosystemDashboard/v1/enter-point
 report_name: EKAM_Report
 email_report: N
 jewel_screen_shots: Y/N
+tags: '@healthcheck'
 glue_code: com.gemini.athenaAPI.stepDefinition.APIStepDefinition
-beta:
+prod:
   browser_name: chrome
   launch_url: https://bondui.geminisolutions.com/#/
   browser_timeout: 100
@@ -21,7 +22,7 @@ beta:
   forgotPassword: https://bondtrading.geminisolutions.com/api/v1/user/forgot-password
   changePassword: https://bondtrading.geminisolutions.com/api/v1/user/change-password
   deleteUser: https://bondtrading.geminisolutions.com/api/v1/user?email=saloninagpal321@gmail.com&userId=481670
-  getUserWatchlist: https://bondtrading.geminisolutions.com/api/v1/user/watchlist?userId=481692
+  getUserWatchlist: https://bondtrading.geminisolutions.com/api/v1/user/watchlist?userId=481633
   createWatchlist: https://bondtrading.geminisolutions.com/api/v1/user/watchlist
   getNotificationPreference: https://bondtrading.geminisolutions.com/api/v1/notification/preferences/
   createNotification: https://bondtrading.geminisolutions.com/api/v1/notification/preferences
@@ -30,5 +31,37 @@ beta:
   createOrder: https://bondtrading.geminisolutions.com/api/v1/orders?userId=
   getOrder: https://bondtrading.geminisolutions.com/api/v1/orders?orderId=7&userId=
   getOrderByUserId: https://bondtrading.geminisolutions.com/api/v1/orders/user?userId=
-
+  bondFilters: https://bondtrading.geminisolutions.com/api/v1/bond/filter
+  getBondsOnFilters: https://bondtrading.geminisolutions.com/api/v1/bond/filter?pageNo=0&pageSize=10
+  getAllBonds: https://bondtrading.geminisolutions.com/api/v1/bond?pageNo=0&pageSize=10
+  bondOnISIN: https://bondtrading.geminisolutions.com/api/v1/bond/IN0000000022
+  unlistedBondDetailsOnISIN: https://bondtrading.geminisolutions.com/api/v1/bond/unlisted/
+  retrieveTop3Bonds: https://bondtrading.geminisolutions.com/api/v1/bond/public
+  textDataDetails: https://bondtrading.geminisolutions.com/api/v1/bond/text-data/IN1234567800
+  listedBondDetailsOnISIN:
+  bondDetailsOnISIN: https://bondtrading.geminisolutions.com/api/v1/bond/details/IN0000000033
+  bondCount: https://bondtrading.geminisolutions.com/api/v1/bond/count
+  getPortfolioDetails: https://bondtrading.geminisolutions.com/api/v1/portfolio?userId=
+  adminLogin: https://bondregistry.geminisolutions.com/api/v1/admin/login
+  getBondDetails: https://bondregistry.geminisolutions.com/api/v1/bonds/
+  unlistedBondDetails: https://bondregistry.geminisolutions.com/api/v1/bonds/unlisted/
+  bondTextDataDetails: https://bondregistry.geminisolutions.com/api/v1/bonds/text-data/
+  unlistedBond: https://bondregistry.geminisolutions.com/api/v1/bonds/unlisted/
+  bondMarketDataDetails: https://bondregistry.geminisolutions.com/api/v1/bonds/market-data/IN0000000033
+  listedBondDetails: https://bondregistry.geminisolutions.com/api/v1/bonds/listed/v
+  retrieveAllBonds: https://bondregistry.geminisolutions.com/api/v1/bonds?pageNo=0&pageSize=10
+  createBond: https://bondregistry.geminisolutions.com/api/v1/bonds/detail
+ # createBond: https://bondregistry.geminisolutions.com/api/v1/bonds
+  createUnlistedBond: https://bondregistry.geminisolutions.com/api/v1/bonds/unlisted
+  saveBondTextData: https://bondregistry.geminisolutions.com/api/v1/bonds/text-data
+  createListedBond: https://bondregistry.geminisolutions.com/api/v1/bonds/listed
+  getFilteredBonds: https://bondregistry.geminisolutions.com/api/v1/bonds/filter?pageNo=0&pageSize=10
+  uploadFileToS3: https://bondregistry.geminisolutions.com/api/v1/bonds/files/upload
+  retrieveCashflow: https://bondregistry.geminisolutions.com/api/v1/bonds/cash-flow
+  retrieveBondOnName: https://bondregistry.geminisolutions.com/api/v1/bonds/name?bondName=string
+  retrieveBondListingDropdowns: https://bondregistry.geminisolutions.com/api/v1/bonds/metadata
+  retrievePresignedUrl: https://bondregistry.geminisolutions.com/api/v1/bonds/files/view?bondISIN=string
+  retrieveBondDetailsOnIsin: https://bondregistry.geminisolutions.com/api/v1/bonds/details/IN0000000033
+  registryBondCount: https://bondregistry.geminisolutions.com/api/v1/bonds/count
+  portfolioDetails: https://bondtrading.geminisolutions.com/api/v1/portfolio?userId=
 

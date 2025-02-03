@@ -8,6 +8,7 @@ Feature: Notification controller
       | Endpoint                     | Method |StatusCode|
       | deleteNotificationPreference | delete |200       |
 
+    @dataAlreadyExist
   Scenario Outline: Create notification preferences
     Given Set endpoint "login" method "post" and SampleName "credentials" for login
     And Set endpoint "<Endpoint>" method "<Method>" and SampleName "<SampleName>"
