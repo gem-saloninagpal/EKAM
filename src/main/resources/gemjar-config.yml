@@ -4,7 +4,7 @@ jewel_user: saloni
 #jewel_bridge_token: 5f1361fc-64d5-4c28-8ca6-6153a0e0b1411736329300728
 #enter_point: https://betaapi.gemecosystem.com/gemEcosystemDashboard/v1/enter-point
 #prod token
-jewel_bridge_token: f82db7ae-0c39-420b-8bc1-f1ba4e13f9581736400361273
+jewel_bridge_token: 33f2c882-2ad7-4673-8a75-dac75c2d9c3b1737966704220
 enter_point: https://apis.gemecosystem.com/gemEcosystemDashboard/v1/enter-point
 report_name: EKAM_Report
 email_report: N
