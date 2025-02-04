@@ -1,10 +1,10 @@
 package com.gemini.ekamAPI.utils;
 
-//import com.auth0.jwt.JWT;
-//import com.auth0.jwt.interfaces.DecodedJWT;
-
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.interfaces.DecodedJWT;
+
+//import com.auth0.jwt.JWT;
+//import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -17,6 +17,7 @@ import com.gemini.gemjar.utils.api.ProjectSampleJson;
 import com.gemini.gemjar.utils.api.Request;
 import com.gemini.gemjar.utils.api.Response;
 import com.gemini.gemjar.utils.app.ProjectConfigData;
+import io.github.classgraph.ResourceList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -28,6 +29,7 @@ import java.util.Map;
 import java.util.Random;
 
 import static com.gemini.ekamAPI.stepDefinition.APIStepDefinition.appendSubjectInEndpoint;
+import static com.gemini.ekamAPI.stepDefinition.APIStepDefinition.getFilesWithExtensionMap;
 //import static sun.jvm.hotspot.debugger.win32.coff.DebugVC50X86RegisterEnums.Status;
 
 public class CommonUtils {
@@ -134,7 +136,10 @@ public class CommonUtils {
                 request.setStep(step);
             }
             if (sampleName != null) {
-                String payload = ProjectSampleJson.getSampleDataString(sampleName);
+                Map<String, ResourceList> list=getFilesWithExtensionMap("json");
+                String dynamicFilePath=list.get(sampleName).toString();
+              //  String payload = ProjectSampleJson.getSampleDataString();
+                String payload = ProjectSampleJson.getSampleDataString(dynamicFilePath);
                 request.setRequestPayload(payload);
                 if(sampleName.contains("create")){
                     String filePath = "src/main/resources/" + sampleName + ".json";
